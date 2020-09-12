@@ -10,4 +10,5 @@ version={{{version}}}
     {{{testBase}}}
     {{{testBase2}}}
     {{{testApp}}}
+    {{{testAppBeta}}}
 {{/model}}
