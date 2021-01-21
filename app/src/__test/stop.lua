@@ -1,0 +1,1 @@
+log_info("Test app successfully stopped")

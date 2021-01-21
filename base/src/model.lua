@@ -1,5 +1,1 @@
-if type(APP.model) ~= "table" then
-    APP.model = {
-        testBase = true
-    }
-end
+am.app.set_model({ testBase = true })
