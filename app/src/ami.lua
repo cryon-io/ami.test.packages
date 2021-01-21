@@ -30,11 +30,11 @@ return {
                     am.app.prepare()
                 end
 
-                if _noOptions or not _options["no-validate"] then
+                if _noOptions and not _options["no-validate"] then
                     am.execute("validate", {"--platform"})
                 end
 
-                if _noOptions or not _options["no-validate"] then
+                if _noOptions and not _options["no-validate"] then
                     am.execute("validate", {"--configuration"})
                 end
 
@@ -110,14 +110,14 @@ return {
 
                 local _ok, _aboutFile = fs.safe_read_file("__test/about.hjson")
                 ami_assert(_ok, "Failed to read about file!", EXIT_APP_ABOUT_ERROR)
-                local _hjson = require "hjson"
-                local _ok, _about = pcall(_hjson.parse, _aboutFile)
-                _about["App Type"] = type(APP.type) == "table" and APP.type.id or APP.type
+
+                local _ok, _about = hjson.safe_parse(_aboutFile)
+                _about["App Type"] = am.app.get({"type", "id"}, am.app.get("type"))
                 ami_assert(_ok, "Failed to parse about file!", EXIT_APP_ABOUT_ERROR)
                 if am.options.OUTPUT_FORMAT == "json" then
-                    print(_hjson.stringify_to_json(_about, {indent = false, skipkeys = true}))
+                    print(hjson.stringify_to_json(_about, {indent = false, skipkeys = true}))
                 else
-                    print(_hjson.stringify(_about))
+                    print(hjson.stringify(_about))
                 end
             end
         },
