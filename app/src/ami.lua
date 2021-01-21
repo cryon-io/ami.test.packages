@@ -8,7 +8,7 @@ return {
             summary = "Prints runtime info and status of the app",
             action = function(_options, _, _, _cli)
                 if _options.help then
-                    show_cli_help(_cli)
+                    am.print_help(_cli)
                     return
                 end
                 am.execute_extension("__test/info.lua", { contextFailExitCode = EXIT_APP_INFO_ERROR })
@@ -22,7 +22,7 @@ return {
             },
             action = function(_options, _, _, _cli)
                 if _options.help then
-                    show_cli_help(_cli)
+                    am.print_help(_cli)
                     return
                 end
                 local _noOptions = #util.keys(_options) == 0
@@ -54,7 +54,7 @@ return {
             summary = "Starts the TEST app",
             action = function(_options, _, _, _cli)
                 if _options.help then
-                    show_cli_help(_cli)
+                    am.print_help(_cli)
                     return
                 end
                 am.execute_extension("__test/start.lua", { contextFailExitCode = EXIT_APP_START_ERROR })
@@ -65,7 +65,7 @@ return {
             summary = "Stops the TEST app",
             action = function(_options, _, _, _cli)
                 if _options.help then
-                    show_cli_help(_cli)
+                    am.print_help(_cli)
                     return
                 end
                 am.execute_extension("__test/stop.lua", { contextFailExitCode = EXIT_APP_STOP_ERROR })
@@ -76,7 +76,7 @@ return {
             summary = "Validates app configuration and platform support",
             action = function(_options, _, _, _cli)
                 if _options.help then
-                    show_cli_help(_cli)
+                    am.print_help(_cli)
                     return
                 end
                 -- //TODO: Validate platform
@@ -104,7 +104,7 @@ return {
             summary = "Prints information about application",
             action = function(_options, _, _, _cli)
                 if _options.help then
-                    show_cli_help(_cli)
+                    am.print_help(_cli)
                     return
                 end
 
@@ -130,7 +130,7 @@ return {
             },
             action = function(_options, _, _, _cli)
                 if _options.help then
-                    show_cli_help(_cli)
+                    am.print_help(_cli)
                     return
                 end
                 am.execute_extension("__test/custom.lua", { contextFailExitCode = EXIT_APP_INTERNAL_ERROR })
@@ -141,7 +141,7 @@ return {
             index = 7,
             action = function(_options, _, _, _cli)
                 if _options.help then
-                    show_cli_help(_cli)
+                    am.print_help(_cli)
                     return
                 end
 
