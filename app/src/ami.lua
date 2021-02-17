@@ -25,7 +25,7 @@ return {
                     am.print_help(_cli)
                     return
                 end
-                local _noOptions = #util.keys(_options) == 0
+                local _noOptions = #table.keys(_options) == 0
                 if _noOptions or _options.environment then
                     am.app.prepare()
                 end

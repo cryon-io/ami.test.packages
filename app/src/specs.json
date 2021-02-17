@@ -1,6 +1,6 @@
 {
     "id": "test.app" ,
-    "version" : "0.0.3",
+    "version" : "0.1.0",
     "dependencies": [
         { "id":"test.base" },
         { "id":"test.base2" }
